@@ -4,3 +4,10 @@ dist/
 .DS_Store
 
 src/Tests/E2E/.venv/
+
+# Redundant declaration files (types come from .ts/.tsx source)
+src/app.d.ts
+src/index.d.ts
+src/types.d.ts
+src/components/**/*.d.ts
+src/Tests/**/*.d.ts
