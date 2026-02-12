@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import type { FormData } from "../../types";
-import * as styles from "./RegisterCardForm.module.scss";
+import * as styles from "../../scss/components/RegisterCardForm/RegisterCardForm.module.scss";
 
 interface RegisterCardFormProps {
   userFirstName?: string;

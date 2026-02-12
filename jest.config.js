@@ -8,11 +8,11 @@ module.exports = {
       },
     ],
   },
+  testMatch: ["<rootDir>/src/Tests/UnitTest/**/*.(spec|test).(ts|tsx)"],
   testPathIgnorePatterns: ["<rootDir>/node_modules"],
   transformIgnorePatterns: ["<rootDir>/node_modules"],
-  testRegex: "\\.(spec|test)\\.(ts|tsx)",
   moduleFileExtensions: ["tsx", "ts", "js", "jsx"],
   moduleNameMapper: {
-    "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+    "\\.(css|scss)$": "<rootDir>/src/Tests/UnitTest/__mocks__/styleMock.js",
   },
 };

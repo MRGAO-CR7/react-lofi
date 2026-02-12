@@ -3,7 +3,7 @@ import { Header } from "./components/Header/Header";
 import { RegisterCardForm } from "./components/RegisterCardForm/RegisterCardForm";
 import { Menu } from "./components/Menu/Menu";
 import type { View } from "./types";
-import * as styles from "./app.module.scss";
+import * as styles from "./scss/app.module.scss";
 
 export const App = () => {
   const [view, setView] = useState<View>("form");

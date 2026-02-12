@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { App } from "./app";
+import { App } from "../../app";
 
 describe("App", () => {
   it("should display register card form by default", () => {

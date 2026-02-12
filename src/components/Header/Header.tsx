@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import * as styles from "./Header.module.scss";
+import * as styles from "../../scss/components/Header/Header.module.scss";
 
 export type HeaderVariant = "form" | "menu";
 
