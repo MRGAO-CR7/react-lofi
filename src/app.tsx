@@ -13,16 +13,18 @@ export const App = () => {
 
   return (
     <div className={styles.app}>
-      <Header
-        variant={view}
-        title={view === "form" ? "Register card form" : "Menu"}
-        onIconClick={view === "form" ? showMenu : showForm}
-      />
-      {view === "form" ? (
-        <RegisterCardForm />
-      ) : (
-        <Menu />
-      )}
+      <div className={styles.contentWrapper}>
+        <Header
+          variant={view}
+          title={view === "form" ? "Register card form" : "Menu"}
+          onIconClick={view === "form" ? showMenu : showForm}
+        />
+        {view === "form" ? (
+          <RegisterCardForm />
+        ) : (
+          <Menu />
+        )}
+      </div>
     </div>
   );
 };
