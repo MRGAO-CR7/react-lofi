@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npx webpack serve --open --config webpack.config.js",
-    "test": "npx jest --config jest.config.js"
+    "test": "npx jest --config jest.config.js",
+    "test:e2e": "cd src/Tests/E2E && .venv/bin/pytest test_register_flow.py -v"
   },
   "author": "",
   "license": "ISC",
