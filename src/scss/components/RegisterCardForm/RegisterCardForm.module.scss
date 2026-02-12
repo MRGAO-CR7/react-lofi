@@ -1,18 +1,48 @@
 .container {
-  padding: 1.5rem;
+  padding: 1rem;
   background: #fff;
+
+  @media (min-width: 480px) {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 2.5rem;
+  }
 }
 
 .welcome {
-  margin: 0 0 1.5rem;
-  font-size: 1.125rem;
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
+
+  @media (min-width: 480px) {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 1.75rem;
+    font-size: 1.25rem;
+  }
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
+
+  @media (min-width: 480px) {
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    gap: 1.5rem;
+  }
 }
 
 .label {
@@ -21,12 +51,16 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: #333;
+
+  @media (min-width: 768px) {
+    font-size: 0.9375rem;
+  }
 }
 
 .input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -45,6 +79,16 @@
   &.error {
     border-color: #c00;
   }
+
+  @media (min-width: 480px) {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0.875rem 1.125rem;
+    font-size: 1rem;
+  }
 }
 
 .errorMessage {
@@ -55,8 +99,20 @@
 
 .row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+
+  @media (min-width: 400px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 480px) {
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    gap: 1.25rem;
+  }
 }
 
 .field {
@@ -66,8 +122,8 @@
 
 .submitButton {
   margin-top: 0.5rem;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: white;
   background-color: #333;
@@ -89,13 +145,27 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+  @media (min-width: 480px) {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    padding: 1.125rem 1.75rem;
+  }
 }
 
 .successMessage {
-  padding: 1rem;
+  padding: 0.875rem 1rem;
   margin-top: 1rem;
   background-color: #e8f5e9;
   color: #2e7d32;
   border-radius: 4px;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
+
+  @media (min-width: 480px) {
+    padding: 1rem;
+    font-size: 0.9375rem;
+  }
 }
