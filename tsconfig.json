@@ -12,7 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "declaration": true,
+    "declaration": false,
     "skipLibCheck": true
   }
 }
