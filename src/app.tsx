@@ -20,7 +20,7 @@ export const App = () => {
           onIconClick={view === "form" ? showMenu : showForm}
         />
         {view === "form" ? (
-          <RegisterCardForm />
+          <RegisterCardForm userFirstName="Eric" />
         ) : (
           <Menu />
         )}

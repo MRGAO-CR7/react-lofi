@@ -57,6 +57,54 @@ export const RegisterCardForm: FC<RegisterCardFormProps> = ({
     if (errors.expiry) setErrors((prev) => ({ ...prev, expiry: "" }));
   };
 
+  const validateField = (field: keyof FormData): string | undefined => {
+    switch (field) {
+      case "cardNumber": {
+        const cardDigits = parseCardNumber(formData.cardNumber);
+        if (cardDigits.length > 0 && (cardDigits.length < 13 || cardDigits.length > 16)) {
+          return "Enter a valid card number (13-16 digits)";
+        }
+        return undefined;
+      }
+      case "cvc":
+        if (formData.cvc.length > 0 && (formData.cvc.length < 3 || formData.cvc.length > 4)) {
+          return "CVC must be 3 or 4 digits";
+        }
+        return undefined;
+      case "expiry": {
+        if (formData.expiry.length === 0) return undefined;
+        const expiryParts = formData.expiry.split("/");
+        if (
+          expiryParts.length !== 2 ||
+          expiryParts[0].length !== 2 ||
+          expiryParts[1].length !== 2
+        ) {
+          return "Enter expiry as MM/YY";
+        }
+        const month = parseInt(expiryParts[0], 10);
+        if (month < 1 || month > 12) {
+          return "Invalid month";
+        }
+        return undefined;
+      }
+      default:
+        return undefined;
+    }
+  };
+
+  const handleBlur = (field: keyof FormData) => {
+    const error = validateField(field);
+    setErrors((prev) => {
+      const next = { ...prev };
+      if (error) {
+        next[field] = error;
+      } else {
+        delete next[field];
+      }
+      return next;
+    });
+  };
+
   const validate = (): boolean => {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
     const cardDigits = parseCardNumber(formData.cardNumber);
@@ -113,6 +161,7 @@ export const RegisterCardForm: FC<RegisterCardFormProps> = ({
             autoComplete="cc-number"
             value={formData.cardNumber}
             onChange={(e) => handleCardNumberChange(e.target.value)}
+            onBlur={() => handleBlur("cardNumber")}
             placeholder="1234 5678 9012 3456"
             className={errors.cardNumber ? `${styles.input} ${styles.error}` : styles.input}
             maxLength={19}
@@ -133,6 +182,7 @@ export const RegisterCardForm: FC<RegisterCardFormProps> = ({
               autoComplete="cc-csc"
               value={formData.cvc}
               onChange={(e) => handleCvcChange(e.target.value)}
+              onBlur={() => handleBlur("cvc")}
               placeholder="123"
               className={errors.cvc ? `${styles.input} ${styles.error}` : styles.input}
               maxLength={4}
@@ -152,6 +202,7 @@ export const RegisterCardForm: FC<RegisterCardFormProps> = ({
               autoComplete="cc-exp"
               value={formData.expiry}
               onChange={(e) => handleExpiryChange(e.target.value)}
+              onBlur={() => handleBlur("expiry")}
               placeholder="MM/YY"
               className={errors.expiry ? `${styles.input} ${styles.error}` : styles.input}
               maxLength={5}
